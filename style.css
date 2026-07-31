@@ -1,0 +1,18 @@
+/* tokens + window */
+:root {
+  --coral: #d97b73;
+  --red: #e23b4e;
+}
+
+.window {
+  border: 5px solid var(--coral);
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+#noBtn {
+  position: relative;
+  transition: left 0.18s, top 0.18s;
+}
