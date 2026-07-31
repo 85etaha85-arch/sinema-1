@@ -1,33 +1,87 @@
+// Pencereler
+const letterWindow = document.getElementById("letter-window");
+const gameWindow = document.getElementById("game-window");
+const loveWindow = document.getElementById("love-window");
+const thanksWindow = document.getElementById("thanks-window");
+
+// Ok Atma Oyunu Elementleri
+const bowArrowContainer = document.querySelector(".bow-arrow-container");
+const arrow = document.getElementById("arrow");
+const targetHeart = document.getElementById("target-heart");
+
+// Butonlar
 const noBtn = document.getElementById("no-btn");
 const yesBtn = document.getElementById("yes-btn");
-const question = document.getElementById("question");
-const catImg = document.getElementById("cat-img");
 
-// "HAYIR" butonundan kaçma fonksiyonu
-function dodgeButton() {
-  // Pencere / alan sınırları içerisinde rastgele X ve Y koordinatları
-  const maxX = 180;
-  const maxY = 150;
+// Zarf tıklandığında oyun penceresini göster
+document.getElementById("envelope-img").addEventListener("click", () => {
+  letterWindow.style.display = "none";
+  gameWindow.style.display = "block";
+});
 
-  const randomX = Math.floor(Math.random() * maxX) - (maxX / 2);
-  const randomY = Math.floor(Math.random() * maxY) - (maxY / 2);
+// Ok Atma Mekaniği
+let isAiming = false;
+let startX;
 
-  noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+bowArrowContainer.addEventListener("mousedown", (e) => {
+  isAiming = true;
+  startX = e.clientX;
+});
+
+document.addEventListener("mouseup", (e) => {
+  if (isAiming) {
+    isAiming = false;
+    const endX = e.clientX;
+    const distance = startX - endX; // Oku fırlatma hızı
+    if (distance > 50) { // Belirli bir mesafeden fazla çekildiyse
+      fireArrow(distance);
+    }
+  }
+});
+
+function fireArrow(distance) {
+  arrow.style.transition = "top 0.5s ease-out";
+  arrow.style.top = "-150px"; // Oku yukarı fırlat
+
+  setTimeout(() => {
+    // Ok hedefe çarptı mı? (Basit kontrol)
+    const targetRect = targetHeart.getBoundingClientRect();
+    const arrowRect = arrow.getBoundingClientRect();
+
+    if (arrowRect.top <= targetRect.bottom) {
+      showHearts();
+      setTimeout(() => {
+        gameWindow.style.display = "none";
+        loveWindow.style.display = "block";
+      }, 1000);
+    } else {
+      // Iska geçtiyse oku geri getir
+      arrow.style.transition = "none";
+      arrow.style.top = "15px";
+    }
+  }, 500);
 }
 
-// Fare üstüne geldiğinde veya dokunulduğunda kaç
-noBtn.addEventListener("mouseover", dodgeButton);
-noBtn.addEventListener("touchstart", dodgeButton);
+function showHearts() {
+  for (let i = 0; i < 5; i++) {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "❤️";
+    heart.style.left = targetHeart.offsetLeft + Math.random() * 40 - 20 + "px";
+    heart.style.top = targetHeart.offsetTop + "px";
+    document.querySelector("#game-window .content").appendChild(heart);
+  }
+}
 
-// "EVET" butonuna tıklandığında gerçekleşecekler
-// "EVET" butonuna tıklandığında gerçekleşecekler
+// "NO" butonu kaçıyor
+noBtn.addEventListener("mouseover", () => {
+  const randomX = Math.floor(Math.random() * 200) - 100;
+  const randomY = Math.floor(Math.random() * 150) - 75;
+  noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+});
+
+// "YES" butonu tıklandığında son mesaj
 yesBtn.addEventListener("click", () => {
-  // Yazıyı güncelliyoruz (HTML etiketleri kullanarak)
-  question.innerHTML = `hehehe biliyodum kabul edeceğiniii YAŞASSIIIN 🥳🥳<br><span style="font-size: 13px; color: #888; font-weight: normal; margin-top: 8px; display: block;">(kesinlikle zorla evete basmadın/span>`;
-
-  // İstersen mutlu bir kedi/gif görseliyle değiştirebilirsin:
-  catImg.src = "https://media.giphy.com/media/MDJ9IbxxvDUQM/giphy.gif";
-
-  // Butonları gizle
-  document.querySelector(".btn-group").style.display = "none";
+  loveWindow.style.display = "none";
+  thanksWindow.style.display = "block";
 });

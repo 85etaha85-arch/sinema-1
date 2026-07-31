@@ -3,12 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aşk Mektubu 💖</title>
+  <title>Sevgililer Günü Mektubu</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <div class="window">
+  <!-- Pembe Kalpli Arka Plan ve Zarf Penceresi -->
+  <div class="window" id="letter-window">
+    <div class="title-bar">
+      <span>Valentine Letter</span>
+      <div class="buttons">
+        <button>-</button>
+        <button>□</button>
+        <button>x</button>
+      </div>
+    </div>
+    <div class="content">
+      <img src="zarf.gif" alt="Zarf" id="envelope-img"> <!-- VİDEODAKİ ZARF GIF'İNİ EKLE -->
+      <h1 id="intro-text">Happy 1 Month</h1>
+    </div>
+  </div>
+
+  <!-- Ok Atma Oyunu Penceresi -->
+  <div class="window" id="game-window">
+    <div class="title-bar">
+      <span>Aim & release to shoot Cupid's arrow</span>
+    </div>
+    <div class="content game-content">
+      <div class="target">
+        <img src="kalp.png" alt="Kalp Hedefi" id="target-heart"> <!-- VİDEODAKİ KALP HEDEFİNİ EKLE -->
+      </div>
+      <div class="bow-arrow-container">
+        <img src="yay.png" alt="Yay" id="bow"> <!-- VİDEODAKİ YAYI EKLE -->
+        <img src="ok.png" alt="Ok" id="arrow"> <!-- VİDEODAKİ OKU EKLE -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Aşk Sorusu Penceresi -->
+  <div class="window" id="love-window" style="display:none;">
     <div class="title-bar">
       <span>LOVE</span>
       <div class="buttons">
@@ -17,16 +50,29 @@
         <button>x</button>
       </div>
     </div>
-
     <div class="content">
-      <img id="cat-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3B3a2x3aHZ4ZW8xZ3p3eW56c3YxeWZ3ZDF2ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" alt="Cute Cat">
-      
-      <h2 id="question">Benimle sinemaya gelirmisiiin?🍿🍿🍿</h2>
-
+      <h2 id="question">Happy 1 month, my love<br>Still love me?</h2>
+      <img src="kedi.gif" alt="Kedi" id="cat-gif"> <!-- VİDEODAKİ KEDİ GIF'İNİ EKLE -->
       <div class="btn-group">
-        <button id="yes-btn">EVET</button>
-        <button id="no-btn">HAYIR</button>
+        <button id="yes-btn">YES</button>
+        <button id="no-btn">NO</button>
       </div>
+    </div>
+  </div>
+
+  <!-- Teşekkür Mesajı Penceresi -->
+  <div class="window" id="thanks-window" style="display:none;">
+    <div class="title-bar">
+      <span>LOVE</span>
+      <div class="buttons">
+        <button>-</button>
+        <button>□</button>
+        <button>x</button>
+      </div>
+    </div>
+    <div class="content">
+      <h1 id="thanks-message">Yayyy! I love you<br>One... month of marriage a lifetime...<br>to go, happy anniversary, my love</h1>
+      <img src="kedi_kalp.gif" alt="Kedi Kalp" id="final-cat-gif"> <!-- VİDEODAKİ SON KEDİ GIF'İNİ EKLE -->
     </div>
   </div>
 

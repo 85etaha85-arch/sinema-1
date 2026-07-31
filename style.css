@@ -6,35 +6,35 @@
 }
 
 body {
-  background-color: #ffdeeb;
-  background-image: radial-gradient(#ffb6c1 2px, transparent 2px);
-  background-size: 20px 20px;
+  background-color: #fce4ec; /* Açık pembe arka plan */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
-/* Pencere Kutusu */
+/* Genel Pencere Stili */
 .window {
   width: 320px;
-  background: #fff0f5;
-  border: 3px solid #ff69b4;
+  background: white;
+  border: 3px solid #f48fb1; /* Koyu pembe kenarlık */
   border-radius: 12px;
-  box-shadow: 5px 5px 0px #ffb6c1;
+  box-shadow: 5px 5px 0px #f8bbd0;
   overflow: hidden;
   text-align: center;
+  margin-bottom: 20px;
 }
 
-/* Pencere Başlığı */
 .title-bar {
-  background: #ff69b4;
+  background: #f48fb1;
   color: white;
   padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: bold;
+  font-size: 14px;
 }
 
 .title-bar .buttons button {
@@ -45,59 +45,102 @@ body {
   border-radius: 3px;
   font-size: 10px;
   cursor: pointer;
-  color: #ff69b4;
+  color: #f48fb1;
   font-weight: bold;
 }
 
-/* İçerik */
 .content {
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  position: relative;
-  min-height: 250px;
 }
 
-#cat-img {
-  width: 100px;
-  height: 100px;
+#envelope-img, #cat-gif, #final-cat-gif {
+  width: 150px;
   margin-bottom: 15px;
 }
 
+h1, h2 {
+  color: #d81b60;
+}
+
+h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
 h2 {
-  font-size: 18px;
-  color: #d63384;
+  font-size: 16px;
   margin-bottom: 20px;
 }
 
-/* Buton Alanı */
+/* Ok Atma Oyunu Alanı */
+.game-content {
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+
+.target {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#target-heart {
+  width: 40px;
+}
+
+.bow-arrow-container {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: crosshair;
+}
+
+#bow {
+  width: 60px;
+}
+
+#arrow {
+  position: absolute;
+  width: 10px;
+  top: 15px;
+  left: 25px;
+}
+
+/* Butonlar */
 .btn-group {
   display: flex;
   gap: 15px;
-  justify-content: center;
-  width: 100%;
 }
 
 button#yes-btn, button#no-btn {
   padding: 10px 20px;
   font-size: 14px;
   font-weight: bold;
-  border: 2px solid #ff69b4;
+  border: 2px solid #f48fb1;
   border-radius: 8px;
   cursor: pointer;
   background: white;
-  color: #ff69b4;
-  box-shadow: 2px 2px 0px #ff69b4;
-  transition: transform 0.1s ease;
+  color: #f48fb1;
+  box-shadow: 2px 2px 0px #f48fb1;
 }
 
-button#yes-btn:hover {
-  background: #ff69b4;
-  color: white;
-}
-
-/* "HAYIR" butonu kaçarken absolute konum kullanacak */
-button#no-btn {
+/* Kalp Efektleri İçin */
+.heart {
   position: absolute;
+  color: #d81b60;
+  font-size: 20px;
+  animation: heartFly 1s linear forwards;
+}
+
+@keyframes heartFly {
+  to {
+    transform: translateY(-100px) scale(1.5);
+    opacity: 0;
+  }
 }
