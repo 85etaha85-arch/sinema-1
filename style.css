@@ -1,64 +1,103 @@
-:root {
-  --coral: #d97b73;
-  --red: #e23b4e;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 body {
-  background-color: #0f0f15;
-  color: #ffffff;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffdeeb;
+  background-image: radial-gradient(#ffb6c1 2px, transparent 2px);
+  background-size: 20px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  margin: 0;
+  height: 100vh;
 }
 
+/* Pencere Kutusu */
 .window {
-  border: 5px solid var(--coral);
+  width: 320px;
+  background: #fff0f5;
+  border: 3px solid #ff69b4;
   border-radius: 12px;
-  background-color: #16161f;
-  width: 380px;
-  padding: 20px;
-  box-sizing: border-box;
+  box-shadow: 5px 5px 0px #ffb6c1;
+  overflow: hidden;
   text-align: center;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.titlebar {
-  margin: -20px -20px 20px -20px;
-  padding: 8px;
-  border-bottom: 2px solid var(--coral);
-  color: var(--coral);
+/* Pencere Başlığı */
+.title-bar {
+  background: #ff69b4;
+  color: white;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   font-weight: bold;
-  letter-spacing: 2px;
 }
 
-.title {
-  font-size: 22px;
-  margin-bottom: 30px;
-}
-
-button {
-  padding: 10px 24px;
-  font-size: 16px;
-  font-weight: bold;
+.title-bar .buttons button {
+  background: white;
   border: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  font-size: 10px;
+  cursor: pointer;
+  color: #ff69b4;
+  font-weight: bold;
+}
+
+/* İçerik */
+.content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  min-height: 250px;
+}
+
+#cat-img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 18px;
+  color: #d63384;
+  margin-bottom: 20px;
+}
+
+/* Buton Alanı */
+.btn-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  width: 100%;
+}
+
+button#yes-btn, button#no-btn {
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border: 2px solid #ff69b4;
   border-radius: 8px;
   cursor: pointer;
-  margin: 10px;
-}
-
-#yesBtn {
-  background-color: #4caf50;
-  color: white;
+  background: white;
+  color: #ff69b4;
+  box-shadow: 2px 2px 0px #ff69b4;
   transition: transform 0.1s ease;
 }
 
-#noBtn {
-  background-color: var(--red);
+button#yes-btn:hover {
+  background: #ff69b4;
   color: white;
-  position: relative;
-  transition: left 0.18s ease, top 0.18s ease;
+}
+
+/* "HAYIR" butonu kaçarken absolute konum kullanacak */
+button#no-btn {
+  position: absolute;
 }

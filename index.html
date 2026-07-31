@@ -3,20 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LOVE Window</title>
+  <title>Aşk Mektubu 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <section class="window">
-    <header class="titlebar">
+  <div class="window">
+    <div class="title-bar">
       <span>LOVE</span>
-    </header>
-    <h1 class="title">Benimle sinemaya gelirmisinn?</h1>
-    <canvas id="cat"></canvas>
-    <button id="yesBtn">YES</button>
-    <button id="noBtn">NO</button>
-  </section>
+      <div class="buttons">
+        <button>-</button>
+        <button>□</button>
+        <button>x</button>
+      </div>
+    </div>
+
+    <div class="content">
+      <img id="cat-img" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcDdtZ2JiZDR0a3B3a2x3aHZ4ZW8xZ3p3eW56c3YxeWZ3ZDF2ZSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9cw/MDJ9IbxxvDUQM/giphy.gif" alt="Cute Cat">
+      
+      <h2 id="question">Benimle sinemaya gelirmisiiin?🍿🍿🍿</h2>
+
+      <div class="btn-group">
+        <button id="yes-btn">EVET</button>
+        <button id="no-btn">HAYIR</button>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>
