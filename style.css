@@ -1,18 +1,64 @@
-/* tokens + window */
 :root {
   --coral: #d97b73;
   --red: #e23b4e;
 }
 
+body {
+  background-color: #0f0f15;
+  color: #ffffff;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
 .window {
   border: 5px solid var(--coral);
   border-radius: 12px;
+  background-color: #16161f;
+  width: 380px;
   padding: 20px;
+  box-sizing: border-box;
   text-align: center;
   position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.titlebar {
+  margin: -20px -20px 20px -20px;
+  padding: 8px;
+  border-bottom: 2px solid var(--coral);
+  color: var(--coral);
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.title {
+  font-size: 22px;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 10px 24px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background-color: #4caf50;
+  color: white;
+  transition: transform 0.1s ease;
 }
 
 #noBtn {
+  background-color: var(--red);
+  color: white;
   position: relative;
-  transition: left 0.18s, top 0.18s;
+  transition: left 0.18s ease, top 0.18s ease;
 }
